@@ -1,0 +1,21 @@
+{
+  "name": "repopilot-mcp",
+  "version": "1.0.0",
+  "description": "An MCP server that lets Claude understand and operate on a git repo",
+  "type": "module",
+  "bin": { "repopilot-mcp": "dist/cli.js" },
+  "files": ["dist"],
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "tsc && chmod +x dist/cli.js",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "typescript": "^5"
+  }
+}

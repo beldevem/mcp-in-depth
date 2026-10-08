@@ -1,0 +1,5 @@
+node_modules
+dist
+repopilot-audit.log
+demo-repo
+part09/tests/tools.snapshot.json.bak

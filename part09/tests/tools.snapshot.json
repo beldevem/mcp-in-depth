@@ -1,0 +1,105 @@
+[
+  {
+    "name": "create_branch",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9/_-]{0,60}$"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+  },
+  {
+    "name": "git_diff",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "ref": {
+          "default": "HEAD",
+          "description": "Commit, branch or tag",
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_][A-Za-z0-9_./~^@{}-]{0,100}$"
+        },
+        "path": {
+          "description": "Only show changes to this file",
+          "type": "string"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+  },
+  {
+    "name": "git_log",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "default": 10,
+          "description": "How many commits, newest first",
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 50
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+  },
+  {
+    "name": "list_todos",
+    "inputSchema": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "run_tests",
+    "inputSchema": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "search_code",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "pattern": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Literal text to look for (not a regex)"
+        },
+        "cursor": {
+          "default": 0,
+          "description": "Offset from the previous reply",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "pattern"
+      ],
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+  },
+  {
+    "name": "what_changed_since",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "since": {
+          "default": "7 days ago",
+          "description": "A git date such as '3 days ago' or '2026-10-01'",
+          "type": "string"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+  }
+]

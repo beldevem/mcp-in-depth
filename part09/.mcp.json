@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "repopilot": {
+      "command": "npx",
+      "args": ["-y", "repopilot-mcp"],
+      "env": { "REPOPILOT_REPO": "." }
+    }
+  }
+}
